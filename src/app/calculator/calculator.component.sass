@@ -1,0 +1,111 @@
+@import "../../assets/utilities/variables"
+
+h3
+  margin: 0.5rem 0 0.5rem
+  font-size: 1.5rem
+  line-height: 2rem
+
+.calculator
+  height: 100%
+  padding: 5vh 0 1rem
+  margin: 2.7rem 0
+  background: url('../../assets/icons/bowling-man.svg') no-repeat bottom right
+  &-form
+    display: flex
+    padding: 1.5rem 0 2.5rem
+    &-group
+      position: relative
+      display: flex
+      flex-direction: column
+      margin: 0 1rem 0 0
+    & input
+      height: 3rem
+      width: 15rem
+      padding-left: 0.5rem
+      font-size: 1rem
+      border: 1px solid $primary-color
+      border-radius: 8px
+      box-shadow: none
+      box-sizing: border-box
+      &::-webkit-inner-spin-button
+        display: none
+      &.error
+        border-color: #9A143D
+        outline: none
+      &[disabled]
+        border: 1px solid #9C999A
+        color: #9C999A
+        cursor: not-allowed
+    & label
+      display: block
+      margin: 0 0 0.3rem
+    & button
+      align-self: flex-end
+      height: 3rem
+      padding: 0 1rem
+      font-size: 1.3rem
+      border: none
+      background: $primary-color
+      border-radius: 8px
+      color: #ffffff
+      cursor: pointer
+      box-sizing: border-box
+      &[disabled]
+        background: #ffffff
+        border: 1px solid #9C999A
+        color: #9C999A
+        cursor: not-allowed
+    &-hint
+      position: absolute
+      bottom: -1.5rem
+      left: 0.2rem
+      margin: 0
+      font-size: 0.8rem
+      color: #9A143D
+  &-frames
+    display: flex
+    flex-direction: column
+    margin: 1rem 0 0
+    div
+      margin: 0.2rem 0
+    h4
+      margin: 0.2rem 0 0.2rem
+      font-size: 1.2rem
+      line-height: 1.5rem
+    p
+      display: inline-block
+      margin: 0 0.3rem 0 0
+
+
+@media (max-width: $layout-breakpoint-mobile)
+  .calculator
+    padding: 0
+    margin: 5vh 2rem 4rem
+    &-form
+      flex-direction: column
+      & input
+        margin-bottom: 2.2rem
+      &-hint
+        bottom: 0.5rem
+        font-size: 1rem
+      & button
+        align-self: flex-start
+        height: 4rem
+        width: 15rem
+        margin: 0.2rem 0 0
+
+@media (max-width: 400px)
+  h3
+    text-align: center
+  .calculator
+    width: 90%
+    margin: 5vh auto 4rem
+    background: none
+    &-form
+      align-items: center
+      &-group
+        margin: 0
+      & button
+        align-self: center
+    &-frames
+      align-items: center

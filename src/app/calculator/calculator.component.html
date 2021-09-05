@@ -1,0 +1,53 @@
+<section class="calculator">
+  <h3>Let's calculate your score?</h3>
+  <form class="calculator-form" [formGroup]="roundForm" (ngSubmit)="onSubmit()">
+    <div class="calculator-form-group">
+      <label>First</label>
+      <input
+        type="string"
+        pattern="^(1[0]|[0-9])$"
+        formControlName="first"
+        [class.error]="
+          roundForm.get('first')?.hasError('pattern') ||
+          roundForm.get('first')?.hasError('required')
+        "
+      />
+      <p
+        class="calculator-form-hint"
+        *ngIf="roundForm.get('first')?.hasError('required')"
+      >
+        Field is required
+      </p>
+      <p
+        class="calculator-form-hint"
+        *ngIf="roundForm.get('first')?.hasError('pattern')"
+      >
+        Should be a number from 0 to 10
+      </p>
+    </div>
+    <div class="calculator-form-group">
+      <label>Second</label>
+      <input
+        type="string"
+        pattern="^(1[0]|[0-9])$"
+        formControlName="second"
+        [class.error]="roundForm.get('second')?.hasError('pattern')"
+      />
+      <p
+        class="calculator-form-hint"
+        *ngIf="roundForm.get('second')?.hasError('pattern')"
+      >
+        Should be a number from 0 to 10
+      </p>
+    </div>
+    <button type="submit" [disabled]="!roundForm.valid">calculate</button>
+  </form>
+  <h3 class="calculator-score">Your score: {{ score.value }}</h3>
+  <div *ngIf="framesCounter.frames.length" class="calculator-frames">
+    <h4>Frames:</h4>
+    <div *ngFor="let frame of framesCounter.frames; let i = index">
+      <p>{{ i + 1 }} frame: {{ frame.first }} and {{ frame.second }}</p>
+      <p *ngIf="frame.first === '10'">★ STRIKE ★</p>
+    </div>
+  </div>
+</section>

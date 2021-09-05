@@ -1,0 +1,27 @@
+
+@import "../assets/utilities/variables"
+
+header, footer
+  height: 2.7rem
+  width: 100%
+  background-color: $primary-color
+
+footer
+  position: fixed
+  left: 0
+  bottom: 0
+
+app-calculator
+  display: block
+  width: 900px
+  margin: 2.7rem auto
+
+p, a
+  display: inline-block
+  margin: 1rem 0.3rem
+  font-size: 0.7rem
+  color: #9C999A
+
+@media (max-width: $layout-breakpoint-mobile)
+  app-calculator
+    width: 100%
